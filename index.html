@@ -4,13 +4,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Nick's Portfolio Style Guide</title>
-	<link href="css/main.css" rel="stylesheet">
+	<!-- 	CSS 	-->
 	<link href="css/normalize.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Quattrocento+Sans|Lato:300|Vollkorn:400italic|Montserrat:700,400' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/jquery.pagepiling.css" />
-	
+	<link href="css/main.css" rel="stylesheet">
+	<!-- 	JAVASCRIPT 	-->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.pagepiling.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
 	<div id="pagepiling">
@@ -20,11 +22,15 @@
 			<div class="contentContainer">
 				<p class="text--intro"><span class="title">Nick Doering</span> is a creative technologist and user experience designer based in Vancouver Canada.</p>
 			</div>
+			<div class="moreArrow">
+				The Work
+				<div class="downArrow"></div>
+			</div>
 		</div>
 		<!--Page 2-->
 		<div class="section grid" id="page2">
 			<div class="col-50 row-100 projectImgs">
-					<img  class="img-1" src="assets/ptsd-assist/Interface-06.jpg" alt="ptsd assist search interface">
+					<img class="wow slideInRight" src="assets/ptsd-assist/poster.png" alt="ptsd assist search interface">
 			</div>
 			<div class="col-50 row-100 red projectDesc">
 				<div class="descContainer">
@@ -43,55 +49,21 @@
 				<div class="descContainer">
 					<div class="tag">Service Design</div>
 					<div class="tag">Multi-platform</div>
-					<h1>Vanguard</h1>
+					<h1>EB Vanguard</h1>
 					<h2>EB Games</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi facilis amet est cupiditate alias, animi porro error excepturi eum delectus cumque quos voluptate qui ex accusantium. Neque harum, beatae dolor!</p>
 					<div class="btn"><a href="vanguard.html">View Project</a></div>
 				</div>
 			</div>
 			<div class="col-50 row-100 projectImgs">
-				<div class="col-100 row-50 blue">
-					<img class="img-2" src="assets/vanguard/showcase.jpg" alt="vanguard interfaces">
+				<div class="col-100 row-100">
+					<img class="wow slideInLeft" src="assets/vanguard/showcase.jpg" alt="vanguard interfaces">
 				</div>
-				<div class="col-100 row-50">
+				<!--<div class="col-100 row-50">
 					<img class="img-2" src="assets/vanguard/service%20process-01.jpg" alt="vanguard service process infographic">
-				</div>
+				</div>-->
 			</div>
 		</div>
 	</div>
-	<script>
-		$(document).ready(function() {
-			$('#pagepiling').pagepiling({
-				menu: false,
-				direction: 'vertical',
-				verticalCentered: true,
-//				sectionsColor: [],
-				anchors: ['about', 'ptsd', 'vanguard'],
-				scrollingSpeed: 700,
-				easing: 'swing',
-				loopBottom: false,
-				loopTop: false,
-				css3: true,
-				navigation: false,
-				/*navigation: {
-					'textColor': '#000',
-					'bulletsColor': '#000',
-					'position': 'right',
-					'tooltips': ['section1', 'section2', 'section3', 'section4']
-				},*/
-				normalScrollElements: null,
-				normalScrollElementTouchThreshold: 5,
-				touchSensitivity: 5,
-				keyboardScrolling: true,
-				sectionSelector: '.section',
-				animateAnchor: false,
-
-				//events
-				onLeave: function(index, nextIndex, direction){},
-				afterLoad: function(anchorLink, index){},
-				afterRender: function(){},
-			});
-		});
-	</script>
 </body>
 </html>

@@ -1,0 +1,46 @@
+//Float based grid system.
+//TODO: Fall-forward to flexbox grid system with modernizr.
+.grid {
+	width: 100%;
+}
+
+.clearfix::after, .grid::after {
+	content: ' ';
+	display: table;
+	clear:both;
+}
+
+[class^="col"] {
+	float: left;
+	padding: 0em 1em;
+	margin: 0;
+	overflow: hidden;
+}
+
+.col-25 {
+	width: 25%;
+}
+
+.col-33 {
+	width: 33%;
+}
+
+.col-50 {
+	width: 50%;
+}
+
+.col-66 {
+	width: 66%;
+}
+
+.col-100 {
+	width: 100%;
+}
+
+.row-100 {
+	height: 100vh;
+}
+
+.row-50 {
+	height: 50vh;
+}

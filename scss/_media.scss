@@ -1,0 +1,32 @@
+//Videos
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+	width: 100%;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.videoWrapper--Project {
+	@extend .videoWrapper;
+	@extend .projectMedia;
+	padding-bottom: 41%;
+}
+
+.projectMedia {
+	float: right;
+	position: relative;
+	width: 40vw;
+	margin: 1em -10vw 1em 1em;
+}
+
+.projectImage {
+	@extend .projectMedia;
+}

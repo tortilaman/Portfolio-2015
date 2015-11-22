@@ -1,4 +1,10 @@
 /*=============================
+**	MAIN TODO
+**===========================*/
+
+//TODO: Finish modularizing scss structure
+
+/*=============================
 **	SASS VARIABLES
 **===========================*/
 
@@ -7,9 +13,10 @@ $c1:			rgb(244, 116, 33);		//Highest Hierarchy
 $c1d:			rgb(161, 64, 20);
 $c2:			rgb(41, 189, 185);		//For Contrast
 $c2d:			rgb(29, 111, 125);
-$c3:			rgb(255, 254, 218	);		//Background-ish
+$c3:			rgb(255, 254, 225	);		//Background-ish
 $shadow:		rgba(0, 0, 0, 0.125);
 $shadow-hover: 	rgba(0, 0, 0, 0.25);
+$transparent: 	rgba(0, 0, 0, 0);
 
 /*	TYPE 	*/
 $title-font:	"Lato", sans-serif;
@@ -17,6 +24,14 @@ $body-font:		"Quattrocento Sans", sans-serif;
 $quote-font:	"Vollkhorn", serif;
 $header-font:	"Montserrat", sans-serif;
 
+/*=============================
+**	IMPORTS
+**===========================*/
+
+@import 'grid';
+@import 'elements';
+@import 'media';
+@import 'layout';
 /*
   STYLE GUIDE STYLING
   Default styling for the style guide
@@ -31,8 +46,9 @@ $header-font:	"Montserrat", sans-serif;
 body, html {
 	font-family: $body-font;
 	line-height: 1.2em;
-	padding: 2em;
+	padding: 0em;
 	background: $c3;
+	overflow-x: hidden;
 }
 
 code {
@@ -44,9 +60,9 @@ code {
 	min-width: 30vw;
 }
 
-/*
-TEXT ELEMENTS -------------------
-*/
+/*=============================
+**	TEXT STYLING
+**===========================*/
 
 .title {
 	font-family: $title-font;
@@ -66,7 +82,7 @@ h6 {
 	font-weight: 400;
 }
 
-#pagepiling h1 {
+h1 {
 	color: $c1;
 	font-size: 4em;
 }
@@ -103,202 +119,3 @@ ol li:before {
 	font-weight: bold;
 }
 
-.btn {
-	display: inline-block;
-//	width: 8em;
-	margin: 0.5em auto;
-	padding: 0.5em 1.5em;
-	background: $c2;
-	box-shadow: 0.1em 0.1em 0.2em $shadow;
-	font-family: $header-font;
-	font-weight: 700;
-	text-align: center;
-	transition: all 0.2s ease-in-out;
-	a {
-		height: 100%;
-		width: 100%;
-		line-height: 1em;
-		color: white;
-		text-decoration: none;
-	}
-}
-
-.btn:hover, .btn:active, .btn:focus {
-	color: white;
-	background: darken($c2, 10%);
-	box-shadow: 0.15em 0.15em 0.2em $shadow-hover;
-	transform: translateY(-0.05em);
-}
-
-.contentContainer {
-	position: relative;
-	margin: 0 auto;
-	padding: 1em;
-	width: 80vw;
-	z-index: 10;
-}
-
-.section {
-	position: relative;
-	width: 100vw;
-	min-height: 100vh;
-	overflow: hidden;
-}
-
-.projectImgs {
-	padding: 0 !important;
-	background: $c3;
-	box-shadow: 0 0 1em $shadow;
-	border: 1px solid $shadow-hover;
-	.col-50, .col-100 {
-		padding: 0 !important;
-		position: relative;
-	}
-	img {
-		height: 50vh;
-		width: 50vw;
-		object-fit:cover;
-		object-position: center center;
-	}
-	.img-1 {
-		height: 100vh;
-		object-fit: contain;
-	}
-	.img-2 {
-		height: 50vh;
-	}
-}
-
-.projectDesc {
-	position: relative;
-}
-
-.descContainer {
-	width: 80%;
-	height: 80%;
-//	overflow: auto;
-	margin: auto;
-	position: absolute;
-	top: 0; left: 0; bottom: 0; right: 0;
-	padding: 2em;
-}
-
-.text--intro {
-	font-size: 3em;
-	line-height: 1.2em;
-	font-weight: 700;
-	color: white;
-	.title {
-		font-size: 1.25em;
-		font-weight: 300;
-	}
-}
-
-.tag {
-	display: inline-block;
-	position: relative;
-	line-height: 1em;
-	padding: 0.5em 1em;
-	margin: 1em 2em 0em 0em;
-	background: $c2d;
-	color: $c3;
-	z-index: 10;
-}
-
-.tag::after {
-	position: absolute;
-	content: ' ';
-	right: -1em;
-	top: 0;
-	width: 0; 
-	height: 0; 
-	border-top: 1em solid transparent;
-	border-bottom: 1em solid transparent;
-	border-left: 1em solid $c2d;
-	z-index: 15;
-}
-
-//	Pages
-
-.pageBackground {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	margin: 0;
-	padding: 0;
-	z-index: 1;
-}
-
-.pageBackground::after {
-	position: absolute;
-	content: "";
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0, 0, 0, 0.25);
-	z-index: 5;
-}
-#page1 .pageBackground {
-	background:
-		url(../assets/placeholder-images/Tessellation-R_Desktop.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-/*	Move the grid to another file? */
-
-.grid {
-	width: 100%;
-}
-
-.clearfix, .grid::after {
-	content: ' ';
-	display: table;
-	clear:both;
-}
-
-[class^="col"] {
-	float: left;
-	padding: 0em 1em;
-	margin: 0;
-	overflow: hidden;
-}
-
-.col-25 {
-	width: 25%;
-}
-
-.col-33 {
-	width: 33%;
-}
-
-.col-50 {
-	width: 50%;
-}
-
-.col-66 {
-	width: 66%;
-}
-
-.col-100 {
-	width: 100%;
-}
-
-.row-100 {
-	height: 100vh;
-}
-
-.row-50 {
-	height: 50vh;
-}
-
-.red {
-	background: $c3;
-}
-
-.blue {
-	background: $c2d;
-}

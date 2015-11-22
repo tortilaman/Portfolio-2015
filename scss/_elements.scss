@@ -1,0 +1,137 @@
+//Button-like things
+
+.btn {
+	display: inline-block;
+	//	width: 8em;
+	margin: 0.5em auto;
+	padding: 0.5em 1.5em;
+	background: $c2;
+	box-shadow: 0.1em 0.1em 0.2em $shadow;
+	font-family: $header-font;
+	font-weight: 700;
+	text-align: center;
+	transition: all 0.2s ease-in-out;
+	a {
+		height: 100%;
+		width: 100%;
+		line-height: 1em;
+		color: white;
+		text-decoration: none;
+	}
+}
+
+.btn:hover, .btn:active, .btn:focus {
+	color: white;
+	background: darken($c2, 10%);
+	box-shadow: 0.15em 0.15em 0.2em $shadow-hover;
+	transform: translateY(-0.05em);
+}
+
+.tag {
+	display: inline-block;
+	position: relative;
+	line-height: 1em;
+	padding: 0.5em 1em;
+	margin: 1em 2em 0em 0em;
+	background: $c2d;
+	color: $c3;
+	z-index: 10;
+}
+
+.tag--project {
+	@extend .tag;
+	margin: 0.5em 2em 0em 0em;
+}
+
+.tag::after {
+	@extend .rightArrow;
+}
+
+#goBack {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+//	margin: 1em;
+//	padding: 1em;
+	text-align: center;
+	width: 6em;
+	line-height: 1em;
+	color: white;
+	padding: 0.5em;
+	margin-top: 1em;
+	z-index: 15;
+
+	a {
+		height: 100%;
+		width: 100%;
+		text-decoration: none;
+		color: white;
+	}
+}
+
+#goBack::after {
+	@extend .leftArrow;
+	border-top: 0.5em solid transparent !important;
+	border-bottom: 0.5em solid transparent !important;
+	border-right: 0.5em solid white !important;
+	top: 0;
+	left: 1em;
+	margin: 0.5em 1em 0.5em 2em;
+	z-index: 10;
+}
+
+//Arrows
+$ar-dim:	1em;
+$ar-col:	$c2d;
+.rightArrow {
+	position: absolute;
+	content: ' ';
+	right: -$ar-dim;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-top: $ar-dim solid transparent;
+	border-bottom: $ar-dim solid transparent;
+	border-left: $ar-dim solid $ar-col;
+	z-index: 15;
+}
+
+.leftArrow {
+	position: absolute;
+	content: ' ';
+	left: -$ar-dim;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-top: $ar-dim solid transparent;
+	border-bottom: $ar-dim solid transparent;
+	border-right: $ar-dim solid $ar-col;
+	z-index: 15;
+}
+
+.upArrow {
+	position: absolute;
+	content: ' ';
+	top: -$ar-dim;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-left: $ar-dim solid transparent;
+	border-right: $ar-dim solid transparent;
+	border-bottom: $ar-dim solid $ar-col;
+	z-index: 15;
+}
+
+.downArrow {
+	position: absolute;
+	content: ' ';
+	bottom: -$ar-dim;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-left: $ar-dim solid transparent;
+	border-right: $ar-dim solid transparent;
+	border-top: $ar-dim solid $ar-col;
+	z-index: 15;
+}
