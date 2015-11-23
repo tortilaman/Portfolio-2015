@@ -17,14 +17,15 @@
 .videoWrapper--Project {
 	@extend .videoWrapper;
 	@extend .projectMedia;
-	padding-bottom: 41%;
+	padding-bottom: 70.31%;
 }
 
 .projectMedia {
-	float: right;
 	position: relative;
-	width: 40vw;
-	margin: 1em -10vw 1em 1em;
+	max-width: 80vw;
+	margin: 0 auto;
+	max-height: 90vh;
+
 }
 
 .projectImage {

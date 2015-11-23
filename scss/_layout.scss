@@ -212,9 +212,16 @@
 //	position: absolute;
 //	left: 20vw;
 	position: relative;
-	width: 60vw;
+	width: 80vw;
 	margin: 0 auto;
 	padding: 0.1em 1em;
 	background: $c3;
 	z-index: 5;
+	text-align: center;
+
+	h1, h2, h3, p {
+		width: 60vw;
+		margin: 1em auto;
+		text-align: left;
+	}
 }

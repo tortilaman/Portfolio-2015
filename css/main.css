@@ -205,14 +205,14 @@
 }
 
 .videoWrapper--Project {
-  padding-bottom: 41%;
+  padding-bottom: 70.31%;
 }
 
 .projectMedia, .videoWrapper--Project, .projectImage {
-  float: right;
   position: relative;
-  width: 40vw;
-  margin: 1em -10vw 1em 1em;
+  max-width: 80vw;
+  margin: 0 auto;
+  max-height: 90vh;
 }
 
 /*=============================
@@ -419,11 +419,18 @@
 
 #projectContent {
   position: relative;
-  width: 60vw;
+  width: 80vw;
   margin: 0 auto;
   padding: 0.1em 1em;
   background: #fffee1;
   z-index: 5;
+  text-align: center;
+}
+
+#projectContent h1, #projectContent h2, #projectContent h3, #projectContent p {
+  width: 60vw;
+  margin: 1em auto;
+  text-align: left;
 }
 
 /*
