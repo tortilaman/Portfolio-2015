@@ -2,9 +2,10 @@
 
 .btn {
 	display: inline-block;
-	//	width: 8em;
-	margin: 0.5em auto;
-	padding: 0.5em 1.5em;
+//	width: 10em;
+	margin: 1em auto;
+	height: 2em;
+	padding: 0;
 	background: $c2;
 	box-shadow: 0.1em 0.1em 0.2em $shadow;
 	font-family: $header-font;
@@ -12,8 +13,10 @@
 	text-align: center;
 	transition: all 0.2s ease-in-out;
 	a {
+		display: block;
 		height: 100%;
 		width: 100%;
+		padding: 0.5em 1.5em;
 		line-height: 1em;
 		color: white;
 		text-decoration: none;
