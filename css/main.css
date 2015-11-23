@@ -215,10 +215,27 @@
   margin: 1em -10vw 1em 1em;
 }
 
+/*=============================
+**	BASE STYLES
+**===========================*/
 .boxShadow, .projectImgs, .projectSpotlight {
   box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.25);
 }
 
+.vertCentered, .projectDesc .descContainer, .projectSpotlight .contentContainer {
+  width: 80%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 2em;
+}
+
+/*=============================
+**	GENERAL STYLES
+**===========================*/
 .section {
   position: relative;
   width: 100vw;
@@ -335,15 +352,7 @@
 }
 
 .projectDesc .descContainer {
-  width: 80%;
-  height: 80%;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  padding: 2em;
+  height: 80vh;
 }
 
 /*=============================
@@ -353,7 +362,6 @@
   position: relative;
   height: 100vh;
   width: 100vw;
-  line-height: 0;
   font-size: 1;
   z-index: 1;
 }
@@ -371,8 +379,7 @@
   content: ' ';
   height: 100vh;
   width: 100vw;
-  background: -webkit-linear-gradient(transparent, transparent, transparent, rgba(0, 0, 0, 0.95));
-  background: linear-gradient(transparent, transparent, transparent, rgba(0, 0, 0, 0.95));
+  background: rgba(0, 0, 0, 0.4);
   z-index: 5;
 }
 
@@ -385,30 +392,35 @@
 }
 
 .projectSpotlight .contentContainer {
-  position: absolute;
-  bottom: 0em;
+  display: inline-block;
+  height: 50vh;
   width: 60vw;
-  margin: 0 20vw;
-  padding: 2em 0 0 0;
-  background: #fffee1;
-  z-index: 10;
+  text-align: center;
+  padding: 0;
 }
 
 .projectSpotlight h1 {
   color: white;
   margin-bottom: 0.4em;
+  font-family: "Vollkhorn", serif;
+  font-size: 10em;
+  line-height: 0.9em;
+  padding: 0;
+  margin: 0;
 }
 
 .projectSpotlight h2 {
   padding: 0 0 0.25em 0;
   margin: 0;
   color: #f47421;
+  font-size: 4em;
+  line-height: 1em;
 }
 
 #projectContent {
   position: relative;
   width: 60vw;
-  margin: -12em auto 0 auto;
+  margin: 0 auto;
   padding: 0.1em 1em;
   background: #fffee1;
   z-index: 5;
