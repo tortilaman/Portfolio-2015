@@ -6,6 +6,12 @@
 **===========================*/
 /*	COLORS 	*/
 /*	TYPE 	*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 /*=============================
 **	IMPORTS
 **===========================*/
@@ -209,6 +215,10 @@
   margin: 1em -10vw 1em 1em;
 }
 
+.boxShadow, .projectImgs, .projectSpotlight {
+  box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.25);
+}
+
 .section {
   position: relative;
   width: 100vw;
@@ -231,13 +241,11 @@
 .text--intro {
   font-size: 3em;
   line-height: 1.2em;
-  font-weight: 700;
   color: white;
 }
 
 .text--intro .title {
   font-size: 1.25em;
-  font-weight: 300;
 }
 
 .pageBackground {
@@ -299,7 +307,6 @@
   position: relative;
   padding: 0 !important;
   background: #fffee1;
-  box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.125);
   z-index: 1;
 }
 
@@ -313,6 +320,14 @@
   width: 50vw;
   object-fit: cover;
   object-position: center center;
+}
+
+#page2 img {
+  object-position: left center;
+}
+
+#page3 img {
+  object-position: -12vw center;
 }
 
 .projectDesc {
@@ -338,10 +353,13 @@
   position: relative;
   height: 100vh;
   width: 100vw;
+  line-height: 0;
+  font-size: 1;
+  z-index: 1;
 }
 
 .projectSpotlight #bannerImage {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
 }
@@ -368,11 +386,12 @@
 
 .projectSpotlight .contentContainer {
   position: absolute;
-  bottom: 1em;
-  left: 20vw;
+  bottom: 0em;
+  width: 60vw;
+  margin: 0 20vw;
+  padding: 2em 0 0 0;
+  background: #fffee1;
   z-index: 10;
-  margin: 0;
-  padding: 0;
 }
 
 .projectSpotlight h1 {
@@ -389,20 +408,16 @@
 #projectContent {
   position: relative;
   width: 60vw;
-  margin: 0 auto;
-  padding: 2em 0 0 0;
+  margin: -12em auto 0 auto;
+  padding: 0.1em 1em;
+  background: #fffee1;
+  z-index: 5;
 }
 
 /*
   STYLE GUIDE STYLING
   Default styling for the style guide
 */
-*,
-*:after,
-*:before {
-  box-sizing: border-box;
-}
-
 body, html {
   font-family: "Quattrocento Sans", sans-serif;
   line-height: 1.2em;
@@ -424,10 +439,11 @@ code {
 **	TEXT STYLING
 **===========================*/
 .title {
-  font-family: "Lato", sans-serif;
+  font-family: "Vollkhorn", serif;
   font-size: 3em;
   font-variant: normal;
-  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
 }
 
 h1,

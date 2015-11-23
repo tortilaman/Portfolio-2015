@@ -19,10 +19,17 @@ $shadow-hover: 	rgba(0, 0, 0, 0.25);
 $transparent: 	rgba(0, 0, 0, 0);
 
 /*	TYPE 	*/
-$title-font:	"Lato", sans-serif;
+//$title-font:	"Lato", sans-serif;
+$title-font:	"Vollkhorn", serif;
 $body-font:		"Quattrocento Sans", sans-serif;
 $quote-font:	"Vollkhorn", serif;
 $header-font:	"Montserrat", sans-serif;
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
 
 /*=============================
 **	IMPORTS
@@ -36,12 +43,6 @@ $header-font:	"Montserrat", sans-serif;
   STYLE GUIDE STYLING
   Default styling for the style guide
 */
-
-*,
-*:after,
-*:before {
-	box-sizing: border-box;
-}
 
 body, html {
 	font-family: $body-font;
@@ -68,7 +69,9 @@ code {
 	font-family: $title-font;
 	font-size: 3em;
 	font-variant: normal;
-	text-transform: uppercase;
+//	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
 }
 
 h1,
