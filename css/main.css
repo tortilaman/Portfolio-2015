@@ -13,19 +13,43 @@
 }
 
 /*=============================
+**	BASE STYLES
+**===========================*/
+.boxShadow, .btn:hover, .btn:active, .btn:focus, a.media img, .media--ContainerWidth img, .media--FullWidth img, .projectImgs, .projectSpotlight {
+  box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.25);
+  -webkit-transition: all 0.5s ease-in-out;
+          transition: all 0.5s ease-in-out;
+}
+
+.boxShadow:hover, .btn:hover, a.media img:hover, .media--ContainerWidth img:hover, .media--FullWidth img:hover, .projectImgs:hover, .projectSpotlight:hover, .boxShadow:active, .btn:active, a.media img:active, .media--ContainerWidth img:active, .media--FullWidth img:active, .projectImgs:active, .projectSpotlight:active, .boxShadow:focus, .btn:focus, a.media img:focus, .media--ContainerWidth img:focus, .media--FullWidth img:focus, .projectImgs:focus, .projectSpotlight:focus {
+  box-shadow: 0 0.1em 0.5em 0.1em rgba(0, 0, 0, 0.5);
+}
+
+.vertCentered, .projectDesc .descContainer, .projectSpotlight .contentContainer {
+  width: 80%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 2em;
+}
+
+/*=============================
 **	IMPORTS
 **===========================*/
 .grid {
   width: 100%;
 }
 
-.clearfix::after, .grid::after {
+.clearfix::after, #projectContent::after, .grid::after {
   content: ' ';
   display: table;
   clear: both;
 }
 
-[class^="col"] {
+[class^="col-"] {
   float: left;
   padding: 0em 1em;
   margin: 0;
@@ -66,7 +90,7 @@
   height: 2em;
   padding: 0;
   background: #29bdb9;
-  box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.125);
+  box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.25);
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   text-align: center;
@@ -87,7 +111,6 @@
 .btn:hover, .btn:active, .btn:focus {
   color: white;
   background: #209390;
-  box-shadow: 0.15em 0.15em 0.2em rgba(0, 0, 0, 0.25);
   -webkit-transform: translateY(-0.05em);
       -ms-transform: translateY(-0.05em);
           transform: translateY(-0.05em);
@@ -191,6 +214,20 @@
   z-index: 15;
 }
 
+.width-100, .media--FullWidth {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin: 0 0 0 -50vw;
+}
+
+.width-80, .gallery {
+  position: relative;
+  width: 80vw;
+  left: 50%;
+  margin: 0 0 0 -40vw;
+}
+
 .videoWrapper, .videoWrapper--Project {
   position: relative;
   padding-bottom: 56.25%;
@@ -207,29 +244,29 @@
   height: 100%;
 }
 
-.projectMedia, .videoWrapper--Project, .projectImage {
+a.media, .media--ContainerWidth, .media--FullWidth {
   position: relative;
-  max-width: 80vw;
-  margin: 0 auto;
-  max-height: 90vh;
+  display: block;
 }
 
-/*=============================
-**	BASE STYLES
-**===========================*/
-.boxShadow, .projectImgs, .projectSpotlight, #projectContent {
-  box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.25);
+a.media img, .media--ContainerWidth img, .media--FullWidth img {
+  width: 100%;
+  height: auto;
 }
 
-.vertCentered, .projectDesc .descContainer, .projectSpotlight .contentContainer {
-  width: 80%;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  padding: 2em;
+.media--ContainerWidth {
+  margin: 0.5em 0;
+}
+
+.media--FullWidth {
+  height: 50vh;
+}
+
+.media--FullWidth img {
+  width: 100vw;
+  height: 50vh;
+  object-fit: cover;
+  object-position: center center;
 }
 
 /*=============================
@@ -254,14 +291,13 @@
 /*=============================
 **	HOMEPAGE
 **===========================*/
-.text--intro {
-  font-size: 3em;
-  line-height: 1.2em;
-  color: white;
+.contentContainer {
+  text-align: center;
 }
 
-.text--intro .title {
-  font-size: 1.25em;
+.contentContainer p {
+  color: white;
+  font-size: 2em;
 }
 
 .pageBackground {
@@ -293,66 +329,48 @@
 }
 
 .moreArrow {
-  display: inline-block;
+  display: block;
   position: absolute;
-  bottom: -3em;
-  left: 40vw;
-  width: 20vw;
-  margin: 0 auto;
+  bottom: 0.5em;
+  left: 0;
+  right: 0;
   text-align: center;
   color: white;
   z-index: 20;
   font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-size: 1.25em;
   -webkit-transition: all 1s ease-in-out;
           transition: all 1s ease-in-out;
 }
 
-.moreArrow .downArrow {
-  content: ' ';
-  width: 0;
-  height: 0;
+.moreArrow svg {
+  display: block;
+  width: 2em;
+  height: 1.5em;
   margin: 0.5em auto;
-  border-left: 1em solid transparent;
-  border-right: 1em solid transparent;
-  border-top: 1em solid white;
-  z-index: 15;
 }
 
 .projectImgs {
   position: relative;
-  padding: 0 !important;
-  background: #fffee1;
+  padding: 0;
   z-index: 1;
 }
 
-.projectImgs .col-50, .projectImgs .col-100 {
-  padding: 0 !important;
-  position: relative;
-}
-
-.projectImgs .col-50::after, .projectImgs .col-100::after {
+.projectImgs:after {
   position: absolute;
+  content: ' ';
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .projectImgs img {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   object-position: center center;
-}
-
-#page2 img {
-  object-position: left center;
-}
-
-#page3 img {
-  object-position: -12vw center;
 }
 
 .projectDesc {
@@ -360,30 +378,19 @@
   top: 0;
   right: 0;
   z-index: 5;
+  background: transparent;
 }
 
 .projectDesc .descContainer {
-  height: 80vh;
-}
-
-.projectDesc h1 {
-  font-size: 7em;
-  line-height: 0.9em;
-  margin: 0.1em 0;
-  font-weight: 700;
-  color: white;
-}
-
-.projectDesc h2 {
-  font-size: 2em;
-  color: #f47421;
+  height: 29em;
+  text-align: center;
 }
 
 /*=============================
 **	PROJECT PAGES
 **===========================*/
 .projectSpotlight {
-  position: fixed;
+  position: relative;
   height: 100vh;
   width: 100vw;
   font-size: 1;
@@ -396,14 +403,14 @@
   height: 100%;
 }
 
-.projectSpotlight #bannerImage::after {
+.projectSpotlight #bannerImage:after {
   position: absolute;
   top: 0;
   left: 0;
   content: ' ';
   height: 100vh;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 5;
 }
 
@@ -417,42 +424,29 @@
 
 .projectSpotlight .contentContainer {
   display: inline-block;
-  height: 50vh;
+  height: 23em;
   width: 60vw;
   text-align: center;
   padding: 0;
 }
 
-.projectSpotlight h1 {
-  color: white;
-  margin-bottom: 0.4em;
-  font-family: "Vollkhorn", serif;
+.projectSpotlight .title {
   font-size: 10em;
-  line-height: 0.9em;
-  padding: 0;
-  margin: 0;
-}
-
-.projectSpotlight h2 {
-  padding: 0 0 0.25em 0;
-  margin: 0;
-  color: #f47421;
-  font-size: 4em;
-  line-height: 1em;
 }
 
 #projectContent {
-  position: relative;
-  width: 100vw;
-  margin: 100vh auto 0 auto;
+  width: 50em;
+  margin: 0 auto;
   padding: 0.1em 1em;
-  background: #fffee1;
+  background: white;
   z-index: 5;
   text-align: center;
 }
 
-#projectContent h1, #projectContent h2, #projectContent h3, #projectContent p {
-  width: 60vw;
+#projectContent h1,
+#projectContent h2,
+#projectContent h3,
+#projectContent p {
   margin: 1em auto;
   text-align: left;
 }
@@ -461,11 +455,12 @@
   STYLE GUIDE STYLING
   Default styling for the style guide
 */
-body, html {
+body,
+html {
   font-family: "Quattrocento Sans", sans-serif;
   line-height: 1.2em;
   padding: 0em;
-  background: #fffee1;
+  background: white;
   overflow-x: hidden;
 }
 
@@ -482,11 +477,19 @@ code {
 **	TEXT STYLING
 **===========================*/
 .title {
-  font-family: "Vollkhorn", serif;
-  font-size: 3em;
+  font-family: "Merriweather", serif;
+  font-size: 7em;
   font-variant: normal;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
+  line-height: 1em;
   font-weight: 700;
+  color: white;
+  margin: 0.3em 0;
+}
+
+.subtitle {
+  font-size: 2em;
+  color: #f47421;
 }
 
 h1,
@@ -498,6 +501,7 @@ h6 {
   font-family: "Montserrat", sans-serif;
   font-variant: small-caps;
   font-weight: 400;
+  letter-spacing: 0.1em;
 }
 
 h1 {
@@ -535,4 +539,9 @@ ol li:before {
   content: counter(item, upper-alpha) ")";
   margin-right: 5px;
   font-weight: bold;
+}
+
+p {
+  line-height: 1.5em;
+  letter-spacing: 0.05em;
 }

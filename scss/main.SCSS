@@ -9,28 +9,61 @@
 **	SASS VARIABLES
 **===========================*/
 
+
 /*	COLORS 	*/
-$c1:			rgb(244, 116, 33);		//Highest Hierarchy
-$c1d:			rgb(161, 64, 20);
-$c2:			rgb(41, 189, 185);		//For Contrast
-$c2d:			rgb(29, 111, 125);
-$c3:			rgb(255, 254, 225	);		//Background-ish
-$shadow:		rgba(0, 0, 0, 0.125);
-$shadow-hover: 	rgba(0, 0, 0, 0.25);
-$shadow-cover:	rgba(0, 0, 0, 0.4);
-$transparent: 	rgba(0, 0, 0, 0);
+
+$c1: rgb(244, 116, 33); //Highest Hierarchy
+$c1d: rgb(161, 64, 20);
+$c2: rgb(41, 189, 185); //For Contrast
+$c2d: rgb(29, 111, 125);
+$c3: rgb(255, 254, 225); //Background-ish
+$shadow: rgba(0, 0, 0, 0.125);
+$shadow: rgba(0, 0, 0, 0.25);
+$shadow-cover: rgba(0, 0, 0, 0.5);
+$transparent: rgba(0, 0, 0, 0);
 
 /*	TYPE 	*/
-//$title-font:	"Lato", sans-serif;
-$title-font:	"Vollkhorn", serif;
-$body-font:		"Quattrocento Sans", sans-serif;
-$quote-font:	"Vollkhorn", serif;
-$header-font:	"Montserrat", sans-serif;
 
+//$title-font:	"Lato", sans-serif;
+$title-font: "Merriweather",
+serif;
+$body-font: "Quattrocento Sans",
+sans-serif;
+$quote-font: "Vollkhorn",
+serif;
+$header-font: "Montserrat",
+sans-serif;
 *,
 *::after,
 *::before {
 	box-sizing: border-box;
+}
+
+/*=============================
+**	BASE STYLES
+**===========================*/
+
+.boxShadow {
+	box-shadow: 0 0 0.5em 0.1em $shadow;
+	transition: all 0.5s ease-in-out;
+	&:hover, &:active, &:focus {
+		box-shadow: 0 0.1em 0.5em 0.1em $shadow-cover;
+	}
+}
+
+
+.vertCentered {
+	//NOTE: MUST DEFINE HEIGHT
+	width: 80%;
+	//	height: 80%;
+	//	overflow: auto;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	padding: 2em;
 }
 
 /*=============================
@@ -41,16 +74,19 @@ $header-font:	"Montserrat", sans-serif;
 @import 'elements';
 @import 'media';
 @import 'layout';
+
 /*
   STYLE GUIDE STYLING
   Default styling for the style guide
 */
 
-body, html {
+body,
+html {
 	font-family: $body-font;
 	line-height: 1.2em;
 	padding: 0em;
-	background: $c3;
+//	background: $c3;
+	background: white;
 	overflow-x: hidden;
 }
 
@@ -63,17 +99,26 @@ code {
 	min-width: 30vw;
 }
 
+
 /*=============================
 **	TEXT STYLING
 **===========================*/
 
 .title {
 	font-family: $title-font;
-	font-size: 3em;
+	font-size: 7em;
 	font-variant: normal;
-//	text-transform: uppercase;
-	letter-spacing: 1px;
+	//	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	line-height: 1em;
 	font-weight: 700;
+	color: white;
+	margin: 0.3em 0;
+}
+
+.subtitle {
+	font-size: 2em;
+	color: $c1;
 }
 
 h1,
@@ -85,6 +130,7 @@ h6 {
 	font-family: $header-font;
 	font-variant: small-caps;
 	font-weight: 400;
+	letter-spacing: 0.1em;
 }
 
 h1 {
@@ -124,3 +170,7 @@ ol li:before {
 	font-weight: bold;
 }
 
+p {
+	line-height: 1.5em;
+	letter-spacing: 0.05em;
+}
