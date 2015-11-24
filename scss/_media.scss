@@ -68,4 +68,9 @@ a.media {
 	@extend .width-80;
 }
 
+figcaption {
+	font-family: $quote-font;
+	font-style: italic;
+}
+
 

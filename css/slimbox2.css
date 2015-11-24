@@ -26,12 +26,8 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-	border: 1px solid #fff;
-	background-repeat: no-repeat;
+	border: 2px solid #fff;
 	background-size: contain;
-/*	max-width: 90vw;
-	max-height: 90vh;
-	height: auto;*/
 }
 
 #lbPrevLink, #lbNextLink {

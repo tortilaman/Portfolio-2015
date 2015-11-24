@@ -269,6 +269,11 @@ a.media img, .media--ContainerWidth img, .media--FullWidth img {
   object-position: center center;
 }
 
+figcaption {
+  font-family: "Vollkhorn", serif;
+  font-style: italic;
+}
+
 /*=============================
 **	GENERAL STYLES
 **===========================*/

@@ -207,7 +207,7 @@
 		**	MY MODIFICATIONS
 		**	==================*/
 
-		/*if($(window).width() < image.offsetWidth || $(window).height() < image.offsetHeight) {
+		if($(window).width() < image.offsetWidth || $(window).height() < image.offsetHeight) {
 			var ratio = image.offsetHeight / image.offsetWidth;
 			if(ratio < 1.0) {
 				centerWidth = $(window).width() * 0.9;
@@ -217,7 +217,7 @@
 				centerHeight = $(window).height() * 0.9;
 				centerWidth = centerHeight / ratio;
 			}
-		}*/
+		}
 
 		/*	END MODIFICATIONS	*/
 
@@ -230,7 +230,7 @@
 		}
 		$(center).queue(function() {
 			$(bottomContainer).css({width: centerWidth, top: top + centerHeight, marginLeft: -centerWidth/2, visibility: "hidden", display: ""});
-			$(image).css({display: "none", visibility: "", opacity: ""}).fadeIn(options.imageFadeDuration, animateCaption);
+			$(image).css({display: "none", visibility: "", opacity: "", width: centerWidth, height: centerHeight}).fadeIn(options.imageFadeDuration, animateCaption);
 		});
 	}
 
@@ -260,3 +260,12 @@
 	}
 
 })(jQuery);
+
+// AUTOLOAD CODE BLOCK (MAY BE CHANGED OR REMOVED)
+if (!/android|iphone|ipod|series60|symbian|windows ce|blackberry/i.test(navigator.userAgent)) {
+	jQuery(function($) {
+		$("a[rel^='lightbox']").slimbox({/* Put custom options here */}, null, function(el) {
+			return (this == el) || ((this.rel.length > 8) && (this.rel == el.rel));
+		});
+	});
+}
