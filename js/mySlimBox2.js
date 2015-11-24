@@ -207,7 +207,7 @@
 		**	MY MODIFICATIONS
 		**	==================*/
 
-		if($(window).width() < image.offsetWidth || $(window).height() < image.offsetHeight) {
+		if($(window).width() < centerWidth || $(window).height() < centerHeight) {
 			var ratio = image.offsetHeight / image.offsetWidth;
 			if(ratio < 1.0) {
 				centerWidth = $(window).width() * 0.9;
@@ -215,7 +215,7 @@
 			}
 			else {
 				centerHeight = $(window).height() * 0.9;
-				centerWidth = centerHeight / ratio;
+				centerWidth = centerHeight * (1/ratio);
 			}
 		}
 

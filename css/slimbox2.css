@@ -28,6 +28,7 @@
 	top: 0;
 	border: 2px solid #fff;
 	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 #lbPrevLink, #lbNextLink {
