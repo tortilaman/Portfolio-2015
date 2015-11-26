@@ -1,36 +1,26 @@
-//Sizes
-.width-100 {
+//Mixins
+@mixin mediaWidth($width) {
 	position: relative;
-	width: 100vw;
+	width: $width * 1vw;
 	left: 50%;
-	margin: 0 0 0 -50vw;
+	$leftMargin: $width / 2 * -1vw;
+	margin: 0 0 0 $leftMargin;
 }
 
-.width-80 {
-	position: relative;
-	width: 80vw;
-	left: 50%;
-	margin: 0 0 0 -40vw;
-}
 //Videos
 .videoWrapper {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
 	height: 0;
 	width: 100%;
-}
-.videoWrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
 
-.videoWrapper--Project {
-	@extend .videoWrapper;
-//	@extend .projectMedia;
-//	padding-bottom: 70.31%;
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 }
 
 a.media {
@@ -44,6 +34,7 @@ a.media {
 	}
 }
 
+//TODO: Should this be the mixin as opposed to the media width???
 .media--ContainerWidth {
 	@extend a.media;
 	margin: 0.5em 0;
@@ -51,7 +42,7 @@ a.media {
 
 .media--FullWidth {
 	@extend a.media;
-	@extend .width-100;
+	@include mediaWidth(100);
 	height: 50vh;
 
 	img {
@@ -65,7 +56,11 @@ a.media {
 }
 
 .gallery {
-	@extend .width-80;
+	@include mediaWidth(80);
+}
+
+figure {
+	margin: 0;
 }
 
 figcaption {

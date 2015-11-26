@@ -39,8 +39,11 @@ sans-serif;
 	box-sizing: border-box;
 }
 
+//Sizes
+$contWidth: 50em;
+
 /*=============================
-**	BASE STYLES
+**	BASE STYLES / MIXIN
 **===========================*/
 
 .boxShadow {
@@ -51,12 +54,10 @@ sans-serif;
 	}
 }
 
-
-.vertCentered {
-	//NOTE: MUST DEFINE HEIGHT
-	width: 80%;
-	//	height: 80%;
-	//	overflow: auto;
+@mixin vertCentered($height, $width, $aligned) {
+	width: $width;
+	height: $height;
+	//overflow: auto;
 	margin: auto;
 	position: absolute;
 	top: 0;
@@ -64,6 +65,7 @@ sans-serif;
 	bottom: 0;
 	right: 0;
 	padding: 2em;
+	text-align: $aligned;
 }
 
 /*=============================
@@ -74,6 +76,7 @@ sans-serif;
 @import 'elements';
 @import 'media';
 @import 'layout';
+@import 'jquery.lightbox';
 
 /*
   STYLE GUIDE STYLING

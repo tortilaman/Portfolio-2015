@@ -16,6 +16,12 @@
 	padding: 1em;
 	width: 80vw;
 	z-index: 10;
+	text-align: center;
+
+	p {
+		color: white;
+		font-size: 2em;
+	}
 }
 
 
@@ -23,16 +29,7 @@
 **	HOMEPAGE
 **===========================*/
 
-//Introduction Slide
-.contentContainer {
-	text-align: center;
-	p {
-		color: white;
-		font-size: 2em;
-	}
-}
-
-.pageBackground {
+@mixin heroImage($imgURL) {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -41,23 +38,25 @@
 	margin: 0;
 	padding: 0;
 	z-index: 1;
-}
+	background: url($imgURL);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 
-.pageBackground::after {
-	position: absolute;
-	content: "";
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0, 0, 0, 0.25);
-	z-index: 5;
+	&::after {
+		position: absolute;
+		content: ' ';
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: $shadow-cover;
+		z-index: 5;
+	}
 }
 
 #page1 .pageBackground {
-	background: url(../assets/placeholder-images/Tessellation-R_Desktop.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
+	@include heroImage("../assets/placeholder-images/Tessellation-R_Desktop.jpg")
 }
 
 .moreArrow {
@@ -109,10 +108,10 @@
 	right: 0;
 	z-index: 5;
 	background: $transparent;
+	padding: 0;
 	.descContainer {
-		@extend .vertCentered;
-		height: 29em;
-		text-align: center;
+		@include vertCentered(29em, 100%, center);
+		padding: 0;
 	}
 }
 
@@ -120,51 +119,26 @@
 **	PROJECT PAGES
 **===========================*/
 
+//TODO: Convert to heroImage
 .projectSpotlight {
-	position: relative;
-//	position: fixed; //Might be interesting.
-	height: 100vh;
-	width: 100vw;
+	@include heroImage("../assets/vanguard/mock2.jpg");
 	@extend .boxShadow;
-	font-size: 1;
+	position: relative;
 	z-index: 1;
-	#bannerImage {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		&:after {
-			position: absolute;
-			top: 0;
-			left: 0;
-			content: ' ';
-			height: 100vh;
-			width: 100vw;
-			background: $shadow-cover;
-			z-index: 5;
-		}
-	}
-	img {
-		height: 100%;
-		width: 100%;
-		object-fit: cover;
-		object-position: center center;
-		z-index: 1;
-	}
+
 	.contentContainer {
-		@extend .vertCentered;
+		@include vertCentered(23em, 60vw, center);
 		display: inline-block;
-		height: 23em;
-		width: 60vw;
-		text-align: center;
 		padding: 0;
 	}
+
 	.title {
 		font-size: 10em;
 	}
 }
 
 #projectContent {
-	width: 50em;
+	width: $contWidth;
 	margin: 0 auto;
 	padding: 0.1em 1em;
 //	background: $c3;
@@ -178,8 +152,5 @@
 	p {
 		margin: 1em auto;
 		text-align: left;
-	}
-	&::after {
-		@extend .clearfix;
 	}
 }
