@@ -103,6 +103,7 @@
 }
 
 .projectDesc {
+	display: inline-block;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -118,8 +119,6 @@
 /*=============================
 **	PROJECT PAGES
 **===========================*/
-
-//TODO: Convert to heroImage
 .projectSpotlight {
 	@include heroImage("../assets/vanguard/mock2.jpg");
 	@extend .boxShadow;
@@ -152,5 +151,12 @@
 	p {
 		margin: 1em auto;
 		text-align: left;
+	}
+
+	h2 {
+		margin: 2em auto 1em auto;
+		&:first-of-type {
+			margin: 1em auto;
+		}
 	}
 }

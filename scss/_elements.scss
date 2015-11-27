@@ -36,20 +36,41 @@
 	display: inline-block;
 	position: relative;
 	line-height: 1em;
-	padding: 0.5em 1em;
-	margin: 1em 2em 0em 0em;
-	background: $c2d;
-	color: $c3;
+	padding: 0.5em 0.5em;
+	margin: 0em 1em 0em 0em;
+//	background: $c2d;
+	color: white;
+//	font-weight: 700;
+	vertical-align: center;
 	z-index: 10;
+//	text-transform: uppercase;
+	font-variant: small-caps;
+	letter-spacing: 0.1em;
+	font-size: 1.25em;
+
+	&::after {
+//		@extend .rightArrow;
+	}
+
+	svg {
+		display: inline-block;
+		height: 1.5em;
+		width: auto;
+		fill: white;
+		stroke: white;
+		padding-right: 0.5em;
+		vertical-align: middle;
+	}
+
+	span {
+		display: inline;
+		vertical-align: middle;
+	}
 }
 
 .tag--project {
 	@extend .tag;
 	margin: 0.5em 2em 0em 0em;
-}
-
-.tag::after {
-	@extend .rightArrow;
 }
 
 #goBack {

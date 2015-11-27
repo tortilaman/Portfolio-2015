@@ -4,7 +4,7 @@
 	width: $width * 1vw;
 	left: 50%;
 	$leftMargin: $width / 2 * -1vw;
-	margin: 0 0 0 $leftMargin;
+	margin-left: $leftMargin;
 }
 
 //Videos
@@ -26,6 +26,7 @@
 a.media {
 	position: relative;
 	display: block;
+	margin: 0.25em 0;
 
 	img {
 		width: 100%;
@@ -37,7 +38,7 @@ a.media {
 //TODO: Should this be the mixin as opposed to the media width???
 .media--ContainerWidth {
 	@extend a.media;
-	margin: 0.5em 0;
+	overflow: visible;
 }
 
 .media--FullWidth {
@@ -60,7 +61,7 @@ a.media {
 }
 
 figure {
-	margin: 0;
+	margin: 2em 0;
 }
 
 figcaption {
