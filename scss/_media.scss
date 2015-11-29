@@ -2,6 +2,7 @@
 @mixin mediaWidth($width) {
 	position: relative;
 	width: $width * 1vw;
+//	min-width: $contWidth;
 	left: 50%;
 	$leftMargin: $width / 2 * -1vw;
 	margin-left: $leftMargin;
@@ -57,7 +58,17 @@ a.media {
 }
 
 .gallery {
-	@include mediaWidth(80);
+	@media screen and (min-width: $desktop + 1) {
+		@include mediaWidth(80);
+		margin: 1.5em 0;
+	}
+	@media screen and (max-width: $desktop) {
+		@include mediaWidth(100);
+
+		figure {
+			margin: 0.5em 0;
+		}
+	}
 }
 
 figure {
@@ -67,6 +78,7 @@ figure {
 figcaption {
 	font-family: $quote-font;
 	font-style: italic;
+	padding: 0 0.25em;
 }
 
 
