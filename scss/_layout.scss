@@ -17,11 +17,6 @@
 	width: 80vw;
 	z-index: 10;
 	text-align: center;
-
-	p {
-		color: white;
-		font-size: 2em;
-	}
 }
 
 
@@ -103,6 +98,7 @@
 }
 
 .projectDesc {
+	display: inline-block;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -118,8 +114,6 @@
 /*=============================
 **	PROJECT PAGES
 **===========================*/
-
-//TODO: Convert to heroImage
 .projectSpotlight {
 	@include heroImage("../assets/vanguard/mock2.jpg");
 	@extend .boxShadow;
@@ -130,27 +124,36 @@
 		@include vertCentered(23em, 60vw, center);
 		display: inline-block;
 		padding: 0;
-	}
 
-	.title {
-		font-size: 10em;
+		@media screen and (max-width: $desktop) {
+			@include vertCentered(23em, 100vw, center);
+		}
 	}
 }
 
 #projectContent {
-	width: $contWidth;
+	max-width: $contWidth;
 	margin: 0 auto;
 	padding: 0.1em 1em;
-//	background: $c3;
 	background: white;
 	z-index: 5;
 	text-align: center;
-//	@extend .boxShadow;
 	h1,
 	h2,
 	h3,
 	p {
 		margin: 1em auto;
 		text-align: left;
+	}
+
+	h2 {
+		margin: 2em auto 1em auto;
+		&:first-of-type {
+			margin: 1em auto;
+		}
+	}
+
+	@media screen and (max-width: $desktop) {
+		width: 100vw;
 	}
 }

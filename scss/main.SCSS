@@ -3,7 +3,6 @@
 **===========================*/
 
 //TODO: Finish modularizing scss structure
-//TODO: Add slimbox css file
 
 /*=============================
 **	SASS VARIABLES
@@ -19,7 +18,7 @@ $c2d: rgb(29, 111, 125);
 $c3: rgb(255, 254, 225); //Background-ish
 $shadow: rgba(0, 0, 0, 0.125);
 $shadow: rgba(0, 0, 0, 0.25);
-$shadow-cover: rgba(0, 0, 0, 0.5);
+$shadow-cover: rgba(0, 0, 0, 0.75);
 $transparent: rgba(0, 0, 0, 0);
 
 /*	TYPE 	*/
@@ -41,6 +40,10 @@ sans-serif;
 
 //Sizes
 $contWidth: 50em;
+
+//Breakpoints
+$desktop: 64em;
+$phone: 35em;
 
 /*=============================
 **	BASE STYLES / MIXIN
@@ -77,6 +80,7 @@ $contWidth: 50em;
 @import 'media';
 @import 'layout';
 @import 'jquery.lightbox';
+@import 'typography';
 
 /*
   STYLE GUIDE STYLING
@@ -91,89 +95,4 @@ html {
 //	background: $c3;
 	background: white;
 	overflow-x: hidden;
-}
-
-code {
-	background-color: #DDD;
-	padding: .75em 1em;
-	display: block;
-	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.24);
-	width: 30%;
-	min-width: 30vw;
-}
-
-
-/*=============================
-**	TEXT STYLING
-**===========================*/
-
-.title {
-	font-family: $title-font;
-	font-size: 7em;
-	font-variant: normal;
-	//	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	line-height: 1em;
-	font-weight: 700;
-	color: white;
-	margin: 0.3em 0;
-}
-
-.subtitle {
-	font-size: 2em;
-	color: $c1;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: $header-font;
-	font-variant: small-caps;
-	font-weight: 400;
-	letter-spacing: 0.1em;
-}
-
-h1 {
-	color: $c1;
-	font-size: 4em;
-}
-
-h2 {
-	font-size: 1.5em;
-	color: $c1d;
-}
-
-h3 {
-	font-variant: normal;
-}
-
-ul {
-	list-style-type: square;
-	padding-left: 1em;
-}
-
-ol {
-	counter-reset: item;
-	margin-left: 0;
-}
-
-ol > li {
-	margin: 0 0 0.2em 0;
-	text-indent: -1em;
-	list-style-type: none;
-	counter-increment: item;
-}
-
-ol li:before {
-	content: counter(item, upper-alpha) ")";
-	margin-right: 5px;
-	font-weight: bold;
-}
-
-p {
-	line-height: 1.5em;
-	letter-spacing: 0.05em;
 }

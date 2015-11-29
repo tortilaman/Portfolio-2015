@@ -2,9 +2,10 @@
 @mixin mediaWidth($width) {
 	position: relative;
 	width: $width * 1vw;
+//	min-width: $contWidth;
 	left: 50%;
 	$leftMargin: $width / 2 * -1vw;
-	margin: 0 0 0 $leftMargin;
+	margin-left: $leftMargin;
 }
 
 //Videos
@@ -26,6 +27,7 @@
 a.media {
 	position: relative;
 	display: block;
+	margin: 0.25em 0;
 
 	img {
 		width: 100%;
@@ -37,7 +39,7 @@ a.media {
 //TODO: Should this be the mixin as opposed to the media width???
 .media--ContainerWidth {
 	@extend a.media;
-	margin: 0.5em 0;
+	overflow: visible;
 }
 
 .media--FullWidth {
@@ -56,16 +58,27 @@ a.media {
 }
 
 .gallery {
-	@include mediaWidth(80);
+	@media screen and (min-width: $desktop + 1) {
+		@include mediaWidth(80);
+		margin: 1.5em 0;
+	}
+	@media screen and (max-width: $desktop) {
+		@include mediaWidth(100);
+
+		figure {
+			margin: 0.5em 0;
+		}
+	}
 }
 
 figure {
-	margin: 0;
+	margin: 2em 0;
 }
 
 figcaption {
 	font-family: $quote-font;
 	font-style: italic;
+	padding: 0 0.25em;
 }
 
 

@@ -1,4 +1,3 @@
-//Float based grid system.
 //TODO: Fall-forward to flexbox grid system with modernizr.
 .grid {
 	width: 100%;
@@ -15,6 +14,11 @@
 	padding: 0em 1em;
 	margin: 0;
 	overflow: hidden;
+
+	@media screen and (max-width: $phone) {
+		width: 100% !important;
+		padding: 0;
+	}
 }
 
 .col-25 {
@@ -44,3 +48,4 @@
 .row-50 {
 	height: 50vh;
 }
+
