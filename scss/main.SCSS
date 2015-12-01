@@ -3,6 +3,7 @@
 **===========================*/
 
 //TODO: Finish modularizing scss structure
+//TODO: Get rid of object-fit, sill ie, tricks are for kids.
 
 /*=============================
 **	SASS VARIABLES
@@ -15,6 +16,8 @@ $c1: rgb(244, 116, 33); //Highest Hierarchy
 $c1d: rgb(161, 64, 20);
 $c2: rgb(41, 189, 185); //For Contrast
 $c2d: rgb(29, 111, 125);
+$c2dt: rgba($c2d, 0.25);
+$c2dt-hover: rgba($c2d, 0.5);
 $c3: rgb(255, 254, 225); //Background-ish
 $shadow: rgba(0, 0, 0, 0.125);
 $shadow: rgba(0, 0, 0, 0.25);
@@ -43,17 +46,17 @@ $contWidth: 50em;
 
 //Breakpoints
 $desktop: 64em;
-$phone: 35em;
+$phone: 47em;
 
 /*=============================
 **	BASE STYLES / MIXIN
 **===========================*/
 
 .boxShadow {
-	box-shadow: 0 0 0.5em 0.1em $shadow;
-	transition: all 0.5s ease-in-out;
+	box-shadow: 0 0 0.5em 0.1em $c2dt;
+	transition: all 0.2s ease-in-out;
 	&:hover, &:active, &:focus {
-		box-shadow: 0 0.1em 0.5em 0.1em $shadow-cover;
+		box-shadow: 0 0em 0.5em 0.1em $c2dt-hover;
 	}
 }
 

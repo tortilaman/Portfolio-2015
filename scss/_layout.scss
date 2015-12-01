@@ -106,8 +106,12 @@
 	background: $transparent;
 	padding: 0;
 	.descContainer {
-		@include vertCentered(29em, 100%, center);
+		@include vertCentered(17em, 100%, center);
 		padding: 0;
+		
+		@media screen and (min-width: $desktop) {
+			@include vertCentered(29em, 100%, center);
+		}
 	}
 }
 
@@ -121,18 +125,18 @@
 	z-index: 1;
 
 	.contentContainer {
-		@include vertCentered(23em, 60vw, center);
+		@include vertCentered(14em, 100vw, center);
 		display: inline-block;
 		padding: 0;
-
-		@media screen and (max-width: $desktop) {
-			@include vertCentered(23em, 100vw, center);
+		
+		@media screen and (min-width: $desktop) {
+			@include vertCentered(33em, 80vw, center);
 		}
 	}
 }
 
 #projectContent {
-	max-width: $contWidth;
+	width: 100vw;
 	margin: 0 auto;
 	padding: 0.1em 1em;
 	background: white;
@@ -153,7 +157,53 @@
 		}
 	}
 
-	@media screen and (max-width: $desktop) {
-		width: 100vw;
+	@media screen and (min-width: $desktop) {
+		max-width: $contWidth;
+	}
+}
+
+#projectDetails {
+	text-align: left;
+	
+	span {
+		font-weight: 700;
+		color: $c2d
+	}
+	
+	@media screen and (min-width: $desktop) {
+		float: right;
+		margin: 0.5em -5em 0 0.5em;
+		padding: 0.5em 1.5em 0.5em 1em;
+		background: $c3;
+		@extend .boxShadow;
+		
+		h3 {
+			margin: 0.5em 0;
+		}
+		
+		ul {
+			margin: 0.25em 0;
+		}
+	}
+}
+
+#footer {
+	padding: 1em;
+	background: $c2d;
+	text-align: center;
+	@extend .boxShadow;
+	color: white;
+	
+	h2 {
+		color: $c1;
+		font-size: 2.5em;
+		margin: 0.5em 0;
+	}
+	
+	a {
+		text-decoration: none;
+		&:hover {
+			color: 
+		}
 	}
 }

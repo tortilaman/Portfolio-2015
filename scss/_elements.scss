@@ -43,11 +43,10 @@
 	z-index: 10;
 	font-variant: small-caps;
 	letter-spacing: 0.1em;
-	font-size: 1.25em;
 
 	svg {
 		display: inline-block;
-		height: 1.5em;
+		height: 1em;
 		width: auto;
 		fill: white;
 		stroke: white;
@@ -59,12 +58,12 @@
 		display: inline;
 		vertical-align: middle;
 	}
-
-	@media screen and (max-width: $desktop) {
-		font-size: 1em;
-
+	
+	@media screen and (min-width: $desktop) {
+		font-size: 1.25em;
+		
 		svg {
-			height: 1em;
+			height: 1.5em;
 		}
 	}
 }

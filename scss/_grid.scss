@@ -31,6 +31,11 @@
 
 .col-50 {
 	width: 50%;
+	&.projectDesc {
+		@media screen and (max-width: $desktop) {
+			width: 66%;
+		}
+	}
 }
 
 .col-66 {
