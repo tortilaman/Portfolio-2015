@@ -2,8 +2,7 @@
 **	MAIN TODO
 **===========================*/
 
-//TODO: Finish modularizing scss structure
-//TODO: Get rid of object-fit, sill ie, tricks are for kids.
+//TODO: Use Modernizr to handle responsive imagery on older android devices. Pretty big share of the market...
 
 /*=============================
 **	SASS VARIABLES
@@ -47,6 +46,9 @@ $contWidth: 50em;
 //Breakpoints
 $desktop: 64em;
 $phone: 47em;
+$phone-image: 480px;
+$tablet-image: 960px;
+$desktop-image: 1920px;
 
 /*=============================
 **	BASE STYLES / MIXIN
@@ -72,6 +74,44 @@ $phone: 47em;
 	right: 0;
 	padding: 2em;
 	text-align: $aligned;
+}
+
+@mixin heroImage($imgURL) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+	background: url($imgURL + "-small.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+
+	@media screen and (min-width: $phone-image) and (max-width: $tablet-image - 1) {
+		background: url($imgURL + "-medium.jpg");
+		background-size: cover;
+		background-position: center center;
+	}
+
+	@media screen and (min-width: $tablet-image) {
+		background: url($imgURL + "-large.jpg");
+		background-size: cover;
+		background-position: center center;
+	}
+
+	&::after {
+		position: absolute;
+		content: ' ';
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: $shadow-cover;
+		z-index: 5;
+	}
 }
 
 /*=============================

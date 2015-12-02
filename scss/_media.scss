@@ -40,7 +40,7 @@ a.media {
 	}
 }
 
-//TODO: Should this be the mixin as opposed to the media width???
+//FUTURE: Should this be the mixin as opposed to the media width???
 .media--ContainerWidth {
 	@extend a.media;
 	overflow: visible;
@@ -51,13 +51,14 @@ a.media {
 	@media screen and (min-width: $desktop) {
 		@include mediaWidth(100);
 		height: 50vh;
+		overflow: hidden;
 
-		img {
-			width: 100vw;
+		div {
+			@include heroImage("../assets/vanguard/home");
 			height: 50vh;
-			//TODO: Need to get rid of the cover stuff... Doesn't work with most browsers
-			object-fit: cover;
-			object-position: center center;
+			&::after {
+				background: none;
+			}
 		}
 	}
 }

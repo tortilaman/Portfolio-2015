@@ -4,7 +4,7 @@ $(document).ready(function() {
 		direction: 'vertical',
 		verticalCentered: true,
 		//				sectionsColor: [],
-		anchors: ['about', 'ptsd', 'vanguard'],
+		anchors: ['intro', 'about', 'ptsd', 'vanguard'],
 		scrollingSpeed: 700,
 		easing: 'swing',
 		loopBottom: false,

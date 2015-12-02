@@ -14,9 +14,12 @@
 	position: relative;
 	margin: 0 auto;
 	padding: 1em;
-	width: 80vw;
-	z-index: 10;
 	text-align: center;
+	z-index: 10;
+	
+	@media screen and (min-width: $desktop) {
+		width: 80vw;
+	}
 }
 
 
@@ -24,37 +27,47 @@
 **	HOMEPAGE
 **===========================*/
 
-@mixin heroImage($imgURL) {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	margin: 0;
-	padding: 0;
-	z-index: 1;
-	background: url($imgURL);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
+#page1 .pageBackground {
+	@include heroImage("../assets/ethos/ethos");
+}
 
-	&::after {
-		position: absolute;
-		content: ' ';
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		background: $shadow-cover;
-		z-index: 5;
+#page2 {
+	.pageBackground {
+		@include heroImage("../assets/ethos/wires");
+	}
+	
+	.subtitle {
+		margin-top: -0.25em;
+		
+		@media screen and (min-width: $desktop) {
+			margin-top: -0.75em;
+		}
+	}
+	
+	p {
+		color: white;
+		padding: 0 1em;
+		text-align: justify;
+
+		@media screen and (min-width: $desktop) {
+			font-size: 1.25em;
+			line-height: 1.5em;
+			max-width: 40em;
+			margin: 0 auto;
+		}
 	}
 }
 
-#page1 .pageBackground {
-	@include heroImage("../assets/placeholder-images/Tessellation-R_Desktop.jpg")
+#page3 .projectImgs {
+	@include heroImage("../assets/ptsd-assist/poster");
+}
+
+#page4 .projectImgs {
+	@include heroImage("../assets/vanguard/explore");
 }
 
 .moreArrow {
+	margin-top: 1em;
 	display: block;
 	position: absolute;
 	bottom: 0.5em;
@@ -66,35 +79,26 @@
 	font-family: $header-font;
 	font-size: 1.25em;
 	transition: all 1s ease-in-out;
+	
 	svg {
 		display: block;
 		width: 2em;
 		height: 1.5em;
 		margin: 0.5em auto;
 	}
+	
+	a {
+		text-decoration: none;
+		color: white;
+		height: 100%;
+		width: 100%;
+	}
 }
 
 //Project Slides
 .projectImgs {
-	position: relative;
-	padding: 0;
 	@extend .boxShadow;
 	z-index: 1;
-	&:after {
-		position: absolute;
-		content: ' ';
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		background: $shadow-cover;
-	}
-	img {
-		height: 100%;
-		width: 100%;
-		object-fit: cover;
-		object-position: center center;
-	}
 }
 
 .projectDesc {
@@ -105,6 +109,7 @@
 	z-index: 5;
 	background: $transparent;
 	padding: 0;
+	
 	.descContainer {
 		@include vertCentered(17em, 100%, center);
 		padding: 0;
@@ -119,7 +124,7 @@
 **	PROJECT PAGES
 **===========================*/
 .projectSpotlight {
-	@include heroImage("../assets/vanguard/mock2.jpg");
+	@include heroImage("../assets/vanguard/mock");
 	@extend .boxShadow;
 	position: relative;
 	z-index: 1;
@@ -172,10 +177,8 @@
 	
 	@media screen and (min-width: $desktop) {
 		float: right;
-		margin: 0.5em -5em 0 0.5em;
+		margin: 1em 0em 0 1em;
 		padding: 0.5em 1.5em 0.5em 1em;
-		background: $c3;
-		@extend .boxShadow;
 		
 		h3 {
 			margin: 0.5em 0;
@@ -188,22 +191,30 @@
 }
 
 #footer {
+	@extend .boxShadow;
+	position: relative;
 	padding: 1em;
 	background: $c2d;
 	text-align: center;
-	@extend .boxShadow;
 	color: white;
+	overflow: hidden;
 	
-	h2 {
-		color: $c1;
-		font-size: 2.5em;
-		margin: 0.5em 0;
+	*, *:after, *:before {
+		position: relative;
+		z-index: 5;
 	}
 	
-	a {
-		text-decoration: none;
-		&:hover {
-			color: 
-		}
+	/*h2 {
+		color: $c1;
+//		font-size: 2.5em;
+		margin: 0.5em 0;
+		line-height: 1.5em;
+	}*/
+	
+	#background {
+		@include heroImage("../assets/ptsd-assist/poster");
+		height: 100%;
+		width: 100%;
+		z-index: 1;
 	}
 }

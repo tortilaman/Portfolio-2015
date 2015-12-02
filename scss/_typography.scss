@@ -7,7 +7,7 @@
 	line-height: 1em;
 	font-weight: 700;
 	color: white;
-	margin: 0.3em 0;
+	margin: 0.125em 0;
 
 	@media screen and (min-width: $phone) {
 		font-size: 7em;
@@ -28,7 +28,9 @@
 
 .subtitle {
 	font-size: 1.4em;
+	line-height: 1.5em;
 	color: $c1;
+	margin: 0.125em 0;
 
 	@media screen and (min-width: $desktop) {
 		font-size: 2em;
@@ -42,7 +44,7 @@ h4,
 h5,
 h6 {
 	font-family: $header-font;
-	font-variant: small-caps;
+//	font-variant: small-caps;
 	font-weight: 400;
 	letter-spacing: 0.1em;
 }

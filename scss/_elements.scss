@@ -30,8 +30,6 @@
 	transform: translateY(-0.05em);
 }
 
-//TODO: Consider restyling the tags?
-
 .tag {
 	display: inline-block;
 	position: relative;
@@ -41,7 +39,7 @@
 	color: white;
 	vertical-align: center;
 	z-index: 10;
-	font-variant: small-caps;
+//	font-variant: small-caps;
 	letter-spacing: 0.1em;
 
 	svg {
